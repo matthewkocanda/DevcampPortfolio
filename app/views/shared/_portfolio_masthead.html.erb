@@ -3,9 +3,12 @@
     <h1 class="jumbotron-heading">My Portfolio</h1>
     <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
     <p>
-
+      <% if logged_in?(:site_admin) %>
+        <%= link_to "New Portfolio", new_portfolio_path, class: 'btn btn-primary' %>
+      <% else %>
       <%= link_to 'Contact to work together', about_path, class: 'btn btn-primary' %>
       <%= link_to 'Read the blog', blogs_path, class: 'btn btn-secondary' %>
+      <% end %>
     </p>
   </div>
 </section>
