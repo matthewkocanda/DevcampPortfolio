@@ -157,7 +157,7 @@ body {
   .masthead,
   .mastfoot,
   .cover-container {
-    width: 55rem;
+    width: 65rem;
   }
 }
 
@@ -216,4 +216,17 @@ body {
 
 .profilepic {
   border-radius: 150px;
+}
+
+.tech-news {
+  color: black;
+  margin: 20px;
+}
+
+.tech-news a {
+  color: #55fcfc;
+}
+
+.tech-news > .card {
+  padding: 10px;
 }
