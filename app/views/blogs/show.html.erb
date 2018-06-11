@@ -2,10 +2,20 @@
 
   <h2><%= @blog.title %></h2>
 
-  <%= link_to 'Edit', edit_blog_path(@blog) if logged_in?(:site_admin) %> |
+  <nav class="breadcrumb">
+    <%= link_to "Home", root_path, class: 'breadcrumb-item' %>
+    <span class="breadcrumb-item active" href="#"><%= @blog.title %></a>
+
+      <span class="float-right" style="padding-left: 400px;">
+        <%= link_to fa_icon('pencil-square-o'), edit_blog_path(@blog) if logged_in?(:site_admin) %>
+        <%= link_to fa_icon('trash'), @blog, method: :delete, data: { confirm: 'Are you sure you want to delete this post' } if logged_in?(:site_admin) %>
+      </span>
+
+    </span>
+  </nav>
 
   <p>
-    <%= @blog.body %>
+    <%= markdown @blog.body %>
   </p>
 
   <%= render 'comments/comment_form' %>
